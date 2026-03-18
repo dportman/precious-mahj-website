@@ -11,63 +11,257 @@
       * {
         box-sizing: border-box;
       }
-      html,
       body {
         margin: 0;
-        width: 100%;
-        height: 100%;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #f7f7f8;
+        background: #f8fafc;
+        color: #0f172a;
       }
-      body {
-        display: grid;
-        place-items: center;
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
       }
-      .card {
-        width: min(42rem, calc(100% - 2rem));
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        box-shadow: 0 8px 30px rgba(17, 24, 39, 0.08);
-        padding: 24px;
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
       }
       h1 {
-        margin: 0 0 12px;
-        font-size: 1.25rem;
+        margin: 0;
+        font-size: 1.4rem;
       }
-      p {
-        margin: 0 0 16px;
-        line-height: 1.5;
-      }
-      .cta {
-        display: inline-block;
-        background: #0a58ca;
-        color: #ffffff;
+      .link {
+        color: #0a58ca;
         text-decoration: none;
         font-weight: 600;
-        border-radius: 8px;
-        padding: 10px 14px;
       }
-      .cta:hover {
+      .link:hover {
+        text-decoration: underline;
+      }
+      .status {
+        margin: 0 0 16px;
+        padding: 12px 14px;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        background: #ffffff;
+      }
+      .status.error {
+        border-color: #fecaca;
+        background: #fff1f2;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 14px;
+      }
+      .card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .card img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        background: #e2e8f0;
+      }
+      .card-body {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-height: 132px;
+      }
+      .product-title {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+      .price {
+        margin: 0;
+        font-weight: 700;
+      }
+      .pill {
+        width: fit-content;
+        margin: 0;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        background: #dcfce7;
+        color: #166534;
+      }
+      .pill.sold-out {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: auto;
+        text-decoration: none;
+        text-align: center;
+        background: #0a58ca;
+        color: #ffffff;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-weight: 600;
+      }
+      .btn:hover {
         background: #0849a8;
+      }
+      .hidden {
+        display: none;
       }
     </style>
   </head>
   <body>
-    <main class="card">
-      <h1>Precious Mahj</h1>
-      <p>
-        If the embedded store does not load, your browser or Shopify security policy may block
-        framing. Use this direct link instead.
-      </p>
-      <a
-        class="cta"
-        href="https://www.preciouslacejewelry.com/collections/precious-mahj"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Open Precious Mahj Store
-      </a>
+    <main class="container">
+      <div class="topbar">
+        <h1>Precious Mahj</h1>
+        <a
+          class="link"
+          href="https://www.preciouslacejewelry.com/collections/precious-mahj"
+          target="_blank"
+          rel="noopener noreferrer"
+          >View collection on Shopify</a
+        >
+      </div>
+
+      <p id="status" class="status">Loading products...</p>
+      <section id="product-grid" class="grid hidden" aria-live="polite"></section>
     </main>
+
+    <script>
+      const config = {
+        shopDomain: "www.preciouslacejewelry.com",
+        apiVersion: "2025-01",
+        collectionHandle: "precious-mahj",
+        storefrontAccessToken: "REPLACE_WITH_STOREFRONT_ACCESS_TOKEN",
+      };
+
+      const statusEl = document.getElementById("status");
+      const gridEl = document.getElementById("product-grid");
+      const endpoint = `https://${config.shopDomain}/api/${config.apiVersion}/graphql.json`;
+
+      const query = `
+        query GetCollectionProducts($handle: String!) {
+          collection(handle: $handle) {
+            title
+            products(first: 24) {
+              nodes {
+                title
+                availableForSale
+                onlineStoreUrl
+                featuredImage {
+                  url
+                  altText
+                }
+                priceRange {
+                  minVariantPrice {
+                    amount
+                    currencyCode
+                  }
+                }
+              }
+            }
+          }
+        }
+      `;
+
+      function setStatus(message, isError = false) {
+        statusEl.textContent = message;
+        statusEl.classList.toggle("error", isError);
+      }
+
+      function formatPrice(price) {
+        const amount = Number(price.amount);
+        return new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: price.currencyCode,
+        }).format(amount);
+      }
+
+      function renderProducts(products) {
+        if (!products.length) {
+          setStatus("No products found in this collection.");
+          return;
+        }
+
+        gridEl.innerHTML = products
+          .map((product) => {
+            const imageUrl = product.featuredImage?.url || "";
+            const imageAlt = product.featuredImage?.altText || product.title;
+            const statusClass = product.availableForSale ? "pill" : "pill sold-out";
+            const statusText = product.availableForSale ? "In stock" : "Sold out";
+
+            return `
+              <article class="card">
+                ${imageUrl ? `<img src="${imageUrl}" alt="${imageAlt}" loading="lazy" />` : ""}
+                <div class="card-body">
+                  <h2 class="product-title">${product.title}</h2>
+                  <p class="price">${formatPrice(product.priceRange.minVariantPrice)}</p>
+                  <p class="${statusClass}">${statusText}</p>
+                  <a class="btn" href="${product.onlineStoreUrl}" target="_blank" rel="noopener noreferrer">
+                    View Product
+                  </a>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        gridEl.classList.remove("hidden");
+        statusEl.classList.add("hidden");
+      }
+
+      async function loadProducts() {
+        if (config.storefrontAccessToken.includes("REPLACE_WITH_")) {
+          setStatus(
+            "Add your Storefront API token in index.html (config.storefrontAccessToken) to load products.",
+            true
+          );
+          return;
+        }
+
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Shopify-Storefront-Access-Token": config.storefrontAccessToken,
+            },
+            body: JSON.stringify({
+              query,
+              variables: { handle: config.collectionHandle },
+            }),
+          });
+
+          if (!response.ok) {
+            throw new Error(`Shopify API request failed (${response.status})`);
+          }
+
+          const payload = await response.json();
+          if (payload.errors?.length) {
+            throw new Error(payload.errors[0].message);
+          }
+
+          const collection = payload.data?.collection;
+          if (!collection) {
+            throw new Error("Collection not found. Check the handle in config.collectionHandle.");
+          }
+
+          renderProducts(collection.products.nodes);
+        } catch (error) {
+          setStatus(`Could not load products: ${error.message}`, true);
+        }
+      }
+
+      loadProducts();
+    </script>
   </body>
 </html>
