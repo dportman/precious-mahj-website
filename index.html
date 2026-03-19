@@ -3,10 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Precious Mahj | Luxury Mahjong Sets & Mats</title>
+    <title>Luxury Mahjong Tiles & Mats | Precious Mahj by Precious Lace Jewelry</title>
     <meta
       name="description"
-      content="Luxury Mahjong sets and mats from Precious Mahj, styled to echo the soft, elevated feel of Precious Lace Jewelry."
+      content="Discover luxury mahjong tiles and mahjong mats by Precious Mahj, featuring jewelry-inspired tile designs from Precious Lace Jewelry and art-led mats adapted from paintings by Tetiana Samoilenko."
+    />
+    <link rel="canonical" href="https://www.preciousmahj.com/" />
+    <meta
+      property="og:title"
+      content="Luxury Mahjong Tiles & Mats | Precious Mahj by Precious Lace Jewelry"
+    />
+    <meta
+      property="og:description"
+      content="Luxury mahjong tiles and mats with jewelry-inspired design, painterly detail, and a soft editorial feel."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.preciousmahj.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Luxury Mahjong Tiles & Mats | Precious Mahj by Precious Lace Jewelry"
+    />
+    <meta
+      name="twitter:description"
+      content="Shop luxury mahjong tiles and art-inspired mats from Precious Mahj."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f4dfdc'/%3E%3Cpath d='M18 44V20h6l8 9 8-9h6v24h-6V30l-8 8-8-8v14z' fill='%232e2e2e'/%3E%3C/svg%3E"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,6 +38,25 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Precious Mahj",
+        "url": "https://www.preciousmahj.com/",
+        "description": "Luxury mahjong tiles and mahjong mats by Precious Mahj, featuring jewelry-inspired tile designs from Precious Lace Jewelry and mats adapted from paintings by Tetiana Samoilenko.",
+        "about": [
+          "Luxury mahjong tiles",
+          "Mahjong mats",
+          "Precious Lace Jewelry",
+          "Tetiana Samoilenko"
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "Precious Mahj"
+        }
+      }
+    </script>
     <style>
       :root {
         color-scheme: light;
@@ -353,6 +396,32 @@
         letter-spacing: 0.05em;
       }
 
+      .catalog-notes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        margin: 18px 0 24px;
+        background: var(--line);
+      }
+
+      .catalog-note {
+        padding: 16px 18px;
+        background: #fffdfa;
+      }
+
+      .catalog-note h3 {
+        font-size: 0.76rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .catalog-note p {
+        margin: 8px 0 0;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+      }
+
       .status {
         margin: 0 auto 26px;
         max-width: 1240px;
@@ -627,25 +696,178 @@
       }
 
       @media (max-width: 720px) {
+        body {
+          line-height: 1.5;
+        }
+
         .topbar-inner,
         .site-header-inner {
           flex-direction: column;
           justify-content: center;
-          padding: 14px 0;
+          padding: 12px 0;
         }
 
         .nav {
           justify-content: center;
-          gap: 14px;
+          gap: 10px 14px;
+        }
+
+        .nav a,
+        .topbar {
+          font-size: 0.72rem;
+          letter-spacing: 0.14em;
+        }
+
+        .hero {
+          padding-bottom: 34px;
+        }
+
+        .hero-grid,
+        .story-grid {
+          min-height: auto;
         }
 
         h1 {
           max-width: none;
           font-size: clamp(2.35rem, 12vw, 3.4rem);
+          line-height: 1.08;
+        }
+
+        h2 {
+          line-height: 1.15;
+        }
+
+        .hero-copy,
+        .hero-visual,
+        .story-copy {
+          padding-block: 24px;
+        }
+
+        .hero-text,
+        .section-intro p,
+        .catalog-head p,
+        .catalog-note p,
+        .story-copy p,
+        .feature-band p,
+        .footer-group a,
+        .footer-group p,
+        .footer-note p {
+          font-size: 0.92rem;
+          letter-spacing: 0.03em;
+        }
+
+        .hero-actions,
+        .button-row {
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 22px;
+        }
+
+        .button {
+          width: 100%;
+          min-height: 48px;
+        }
+
+        .hero-visual {
+          min-height: 250px;
+          align-items: center;
+        }
+
+        .hero-visual::before {
+          inset: 10% 12% auto;
+          height: 38%;
+        }
+
+        .hero-visual::after {
+          width: min(240px, 54vw);
+          transform: translateY(0);
+        }
+
+        .visual-card {
+          width: 100%;
+          margin-top: 0;
+          padding: 18px;
+        }
+
+        .quote-band,
+        .content-section {
+          padding-block: 24px;
+        }
+
+        .quote-card {
+          padding-block: 22px;
+        }
+
+        .quote-card p {
+          font-size: 0.82rem;
+          line-height: 1.7;
+          letter-spacing: 0.08em;
+        }
+
+        .section-intro {
+          margin-bottom: 18px;
+        }
+
+        .catalog-block {
+          padding: 22px 18px 18px;
+        }
+
+        .catalog-notes {
+          margin: 16px 0 18px;
+        }
+
+        .catalog-note {
+          padding: 14px 16px;
+        }
+
+        .status {
+          margin-bottom: 18px;
+          padding: 12px 14px;
+          font-size: 0.82rem;
+        }
+
+        .shopify-buy__product {
+          padding: 16px !important;
+        }
+
+        .shopify-buy__btn {
+          width: 100% !important;
+        }
+
+        .story-visual {
+          min-height: 230px;
+        }
+
+        .story-visual::before {
+          inset: auto 12% 12% auto;
+          width: min(220px, 48vw);
+        }
+
+        .story-visual::after {
+          inset: 12% auto auto 12%;
+          width: min(120px, 24vw);
+        }
+
+        .feature-band {
+          margin-top: 16px;
+          padding: 32px 0;
+        }
+
+        .detail-card {
+          padding: 18px 16px;
+        }
+
+        .footer-main {
+          padding: 22px 0;
+        }
+
+        .footer-note {
+          padding: 20px 16px 24px;
         }
 
         .detail-grid,
         .footer-grid,
+        .catalog-notes,
         .shopify-buy__collection-products,
         .shopify-buy__product-set {
           grid-template-columns: 1fr !important;
@@ -664,7 +886,7 @@
   <body>
     <div class="topbar">
       <div class="container topbar-inner">
-        <span>Luxury Mahjong for the modern collector</span>
+        <span>Designer mahjong tiles and art-led mats for devoted mahjong players</span>
         <a href="https://www.preciouslacejewelry.com/" target="_blank" rel="noopener noreferrer"
           >Visit Precious Lace Jewelry</a
         >
@@ -681,7 +903,7 @@
         <nav class="nav" aria-label="Primary">
           <a href="#tiles">Tiles</a>
           <a href="#mats">Mats</a>
-          <a href="#story">The Feel</a>
+          <a href="#story">About</a>
           <a
             href="https://www.preciouslacejewelry.com/collections/precious-mahj"
             target="_blank"
@@ -697,21 +919,22 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Inspired by lace, crafted for the table</p>
-            <h1>Mahjong pieces with a softer, more elevated point of view.</h1>
+            <h1>Luxury mahjong tiles and mats designed to make every table feel extraordinary.</h1>
             <p class="hero-text">
-              Precious Mahj brings the refined, feminine mood of Precious Lace Jewelry into game
-              night through curated tiles and mats designed to feel polished, giftable, and quietly
-              luxurious.
+              Precious Mahj brings the refined world of Precious Lace Jewelry into mahjong through
+              jewelry-inspired tile sets and art-led mats made for players who love the ritual of
+              the game. The result is a luxury mahjong collection that feels chic, distinctive, and
+              deeply satisfying to bring to the table.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#tiles">Shop Tiles</a>
-              <a class="button button-secondary" href="#mats">Shop Mats</a>
+              <a class="button button-primary" href="#tiles">Shop Luxury Tiles</a>
+              <a class="button button-secondary" href="#mats">Explore Art Mats</a>
             </div>
           </div>
 
           <div class="hero-visual" aria-hidden="true">
             <div class="visual-card">
-              <p>Warm neutrals, graceful detailing, and heirloom-worthy Mahjong essentials.</p>
+              <p>Jewelry-inspired design, painterly color, and heirloom-worthy mahjong essentials.</p>
             </div>
           </div>
         </div>
@@ -722,8 +945,8 @@
           <div class="quote-card">
             <p>
               Precious Mahj is where the romance of Precious Lace Jewelry meets the ritual of the
-              table. Every set is chosen to feel refined, distinctive, and beautifully at home in a
-              luxury interior.
+              table. Every luxury mahjong set and mat is chosen for players who want their regular
+              games to feel refined, distinctive, and beautifully set.
             </p>
           </div>
         </div>
@@ -735,10 +958,11 @@
         <div class="container">
           <div class="section-intro">
             <p class="eyebrow">Explore our collected essentials</p>
-            <h2>Mahjong tile sets styled with the same elegance as fine jewelry.</h2>
+            <h2>Luxury mahjong tiles designed with the elegance, detail, and desirability of fine jewelry.</h2>
             <p>
-              Thoughtfully selected tile sets with a collectible feel, soft palettes, and a sense
-              of occasion that goes beyond game night.
+              Precious Mahj tile sets are created for mahjong enthusiasts who care about how the
+              game looks and feels, with refined color stories, polished finishes, and a presence
+              that elevates every shuffle, rack, and winning hand.
             </p>
           </div>
 
@@ -746,9 +970,29 @@
             <div class="catalog-head">
               <h2>Mahjong Tiles</h2>
               <p>
-                Statement-making sets with polished finishes and elevated color stories designed to
-                feel special from the first unboxing.
+                Designed by Precious Lace Jewelry, these luxury mahjong tiles translate the brand's
+                feminine, detail-rich jewelry language into statement sets for the table, giving you
+                mahjong tiles that feel as considered and distinctive as a signature piece every
+                time you play.
               </p>
+            </div>
+            <div class="catalog-notes" aria-label="Mahjong tile design notes">
+              <article class="catalog-note">
+                <h3>Designed by Precious Lace Jewelry</h3>
+                <p>
+                  Each tile collection reflects a jewelry designer's eye for proportion, finish,
+                  color harmony, and decorative detail, resulting in luxury mahjong tiles with a
+                  noticeably elevated look and a special presence in the hand.
+                </p>
+              </article>
+              <article class="catalog-note">
+                <h3>Made for Mahjong Enthusiasts</h3>
+                <p>
+                  Created for players who notice the details, these mahjong tiles are meant to feel
+                  polished, satisfying to play with, and visually unforgettable from the first wall
+                  to the final reveal.
+                </p>
+              </article>
             </div>
             <div id="tiles-collection" class="collection-slot"></div>
           </div>
@@ -760,11 +1004,29 @@
           <div class="catalog-block alt">
             <div class="catalog-head">
               <p class="eyebrow">Soft structure for the table</p>
-              <h2>Mahjong mats that complete the look with warmth and sophistication.</h2>
+              <h2>Mahjong mats inspired by fine art, created to soften and complete the table.</h2>
               <p>
-                Coordinated mats that anchor the table with texture, comfort, and a polished finish
-                worthy of the Precious Mahj name.
+                These mats bring an art-led layer to the collection, pairing practical comfort with
+                painterly color, everyday functionality, and a polished finish worthy of the
+                Precious Mahj name for enthusiasts who want their whole setup to feel intentional.
               </p>
+            </div>
+            <div class="catalog-notes" aria-label="Mahjong mat design notes">
+              <article class="catalog-note">
+                <h3>Art by Tetiana Samoilenko</h3>
+                <p>
+                  Adapted from paintings by Kyiv-based Ukrainian artist and designer Tetiana
+                  Samoilenko, whose practice includes watercolor, batik on pure silk, pencil,
+                  gouache, and digital art.
+                </p>
+              </article>
+              <article class="catalog-note">
+                <h3>Painterly Mahjong Mats</h3>
+                <p>
+                  The result is a softer, more expressive playing surface that adds artistic depth,
+                  color, and character to every game while beautifully framing your tiles and racks.
+                </p>
+              </article>
             </div>
             <div id="mats-collection" class="collection-slot"></div>
           </div>
@@ -774,17 +1036,18 @@
       <section id="story" class="content-section">
         <div class="container story-grid">
           <div class="story-copy">
-            <p class="eyebrow">Where feminine grace meets modern play</p>
-            <h2>A Mahjong collection designed to feel bespoke, polished, and gift-ready.</h2>
+            <p class="eyebrow">About the collection</p>
+            <h2>A luxury mahjong collection rooted in jewelry design, fine art, and the joy of play.</h2>
             <p>
-              The reference brand works because it feels editorial rather than promotional. This
-              page now follows that same rhythm: refined typography, softened color, airy spacing,
-              and a more considered product presentation.
+              Jewelry-inspired tiles by Precious Lace Jewelry and art-led mats adapted from Tetiana
+              Samoilenko's work bring together two creative worlds in one collection. The result is
+              mahjong made more special through craftsmanship, artistry, and a distinctive point of
+              view.
             </p>
             <p>
-              Instead of heavy cards and rounded buttons, the experience now leans on flat
-              silhouettes, blush and taupe color blocking, and a quiet luxury palette that keeps
-              the focus on the products.
+              Precious Mahj is made for mahjong enthusiasts who want pieces with beauty,
+              personality, and lasting presence, whether they play weekly, host often, or simply
+              love creating a table everyone wants to gather around.
             </p>
             <div class="button-row">
               <a
@@ -792,7 +1055,7 @@
                 href="https://www.preciouslacejewelry.com/collections/precious-mahj"
                 target="_blank"
                 rel="noopener noreferrer"
-                >View Full Collection</a
+                >Shop The Full Collection</a
               >
             </div>
           </div>
@@ -803,26 +1066,26 @@
 
       <section class="feature-band">
         <div class="container">
-          <p class="eyebrow">Good things take time</p>
-          <h2>Curated pieces, elevated presentation, and a slower luxury tempo.</h2>
+          <p class="eyebrow">Why Precious Mahj</p>
+          <h2>Distinctive mahjong pieces created for enthusiasts who want the game to feel as beautiful as it is fun.</h2>
           <p>
-            From collectible tile sets to coordinating mats, Precious Mahj is presented with the
-            same sense of calm refinement, tactile beauty, and giftable intention seen across the
-            Precious Lace world.
+            From signature tile sets to coordinating mats, Precious Mahj brings together designer
+            detail, artistic influence, and player-minded beauty in a collection meant to be used,
+            admired, and returned to again and again.
           </p>
 
           <div class="detail-grid">
             <article class="detail-card">
-              <h3>Luxury Palette</h3>
-              <p>Soft ivory, blush, taupe, and charcoal tones borrowed from the reference site.</p>
+              <h3>Designed by Precious Lace Jewelry</h3>
+              <p>Tile sets shaped by a jewelry designer's eye for detail, harmony, finish, and distinctive style.</p>
             </article>
             <article class="detail-card">
-              <h3>Editorial Rhythm</h3>
-              <p>More breathing room, cleaner lines, and content blocks that feel curated.</p>
+              <h3>Art by Tetiana Samoilenko</h3>
+              <p>Mahjong mats adapted from original paintings, bringing an expressive fine-art touch to the table.</p>
             </article>
             <article class="detail-card">
-              <h3>Refined Product View</h3>
-              <p>Shopify embeds are restyled to feel flatter, quieter, and more premium.</p>
+              <h3>Made for Real Play</h3>
+              <p>Pieces chosen for players who want every game to feel more special, personal, and beautifully set.</p>
             </article>
           </div>
         </div>
@@ -849,20 +1112,20 @@
             <a href="https://www.preciouslacejewelry.com/" target="_blank" rel="noopener noreferrer"
               >Precious Lace Jewelry</a
             >
-            <p>Lace-inspired luxury, adapted for Mahjong.</p>
+            <p>Jewelry-inspired luxury created for mahjong enthusiasts.</p>
           </div>
 
           <div class="footer-group">
-            <h4>Feel</h4>
-            <p>Soft neutrals</p>
-            <p>Editorial spacing</p>
-            <p>Quiet luxury presentation</p>
+            <h4>Collections</h4>
+            <p>Jewelry-inspired tiles</p>
+            <p>Art-inspired mats</p>
+            <p>Beautifully playable sets</p>
           </div>
 
           <div class="footer-group">
             <h4>Designed For</h4>
-            <p>Collectors</p>
-            <p>Gift-giving</p>
+            <p>Weekly players</p>
+            <p>Enthusiasts and hosts</p>
             <p>Elevated game nights</p>
           </div>
         </div>
@@ -871,8 +1134,7 @@
       <div class="footer-note">
         <p class="eyebrow">Precious Mahj</p>
         <p>
-          A softer, more luxurious static storefront that closely follows the Precious Lace visual
-          language in typography, color, spacing, and tone.
+          Luxury mahjong tiles and art-inspired mats created for enthusiasts who want a more beautiful way to play.
         </p>
       </div>
     </footer>
