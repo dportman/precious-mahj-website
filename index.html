@@ -3,187 +3,879 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Precious Mahj | Mahjong Tiles & Mats</title>
+    <title>Precious Mahj | Luxury Mahjong Sets & Mats</title>
+    <meta
+      name="description"
+      content="Luxury Mahjong sets and mats from Precious Mahj, styled to echo the soft, elevated feel of Precious Lace Jewelry."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: light;
-        --bg: #f8f5f1;
-        --bg-card: #fffdfa;
-        --ink: #2c2622;
-        --ink-soft: #5b534d;
-        --gold: #b8955f;
-        --gold-dark: #8f6f3d;
-        --line: #e8dfd3;
+        --bg: #faf8f6;
+        --bg-soft: #fffdfa;
+        --blush: #f4dfdc;
+        --taupe: #c8b3a3;
+        --taupe-deep: #b79f8d;
+        --ink: #2e2e2e;
+        --ink-soft: #71655d;
+        --line: #eee4dc;
+        --accent: #efd6d2;
+        --shadow: 0 20px 40px rgba(123, 104, 90, 0.08);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
+        background: var(--bg);
         color: var(--ink);
-        background: radial-gradient(circle at top, #fefcf9 0%, var(--bg) 56%);
-        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        font-family: "Inter", Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
       }
 
       .container {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1240px, calc(100% - 32px));
         margin: 0 auto;
       }
 
+      .topbar {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.74rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .topbar-inner {
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        color: var(--ink-soft);
+      }
+
+      .topbar a {
+        text-decoration: none;
+      }
+
+      .site-header {
+        background: #ffffff;
+      }
+
+      .site-header-inner {
+        min-height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        margin: 0;
+        font-size: 0.76rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      .brand-name {
+        margin: 3px 0 0;
+        font-size: 1.45rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        text-decoration: none;
+        font-size: 0.84rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
       .hero {
-        padding: 56px 0 30px;
-        text-align: center;
+        padding: 0 0 56px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(0, 1.18fr);
+        min-height: 610px;
+        background: #ffffff;
+      }
+
+      .hero-copy,
+      .hero-visual {
+        padding: clamp(36px, 5vw, 72px);
+      }
+
+      .hero-copy {
+        background: var(--blush);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .eyebrow {
         margin: 0;
+        font-size: 0.78rem;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
-        letter-spacing: 0.2em;
-        font-size: 0.8rem;
-        color: var(--gold-dark);
+        color: var(--ink-soft);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .headline {
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        line-height: 1.28;
       }
 
       h1 {
-        margin: 14px 0 0;
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        font-weight: 500;
-        line-height: 1.1;
+        margin-top: 14px;
+        max-width: 12ch;
+        font-size: clamp(2.7rem, 5vw, 4.35rem);
       }
 
-      .subtitle {
-        width: min(700px, 100%);
-        margin: 16px auto 0;
-        font-size: 1.2rem;
-        line-height: 1.45;
+      .hero-text {
+        max-width: 560px;
+        margin: 18px 0 0;
+        font-size: 0.97rem;
+        letter-spacing: 0.05em;
+        color: var(--ink);
+      }
+
+      .hero-actions,
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 11px 20px;
+        border: 1px solid transparent;
+        border-radius: 0;
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .button-primary {
+        background: var(--ink);
+        color: var(--accent);
+      }
+
+      .button-primary:hover {
+        background: #171717;
+      }
+
+      .button-secondary {
+        background: transparent;
+        color: var(--ink);
+        border-color: rgba(46, 46, 46, 0.2);
+      }
+
+      .button-secondary:hover {
+        background: rgba(255, 255, 255, 0.55);
+      }
+
+      .hero-visual {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 32% 42%, rgba(255, 225, 197, 0.92), transparent 18%),
+          radial-gradient(circle at 52% 48%, rgba(154, 210, 219, 0.95), transparent 11%),
+          radial-gradient(circle at 56% 49%, rgba(112, 151, 124, 0.9), transparent 6.2%),
+          linear-gradient(180deg, #f7f1eb 0%, #f7f4f2 100%);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .hero-visual::before {
+        content: "";
+        position: absolute;
+        inset: 8% 12% auto;
+        height: 31%;
+        border-radius: 50%;
+        border: 18px solid rgba(214, 186, 132, 0.72);
+        filter: blur(1px);
+        opacity: 0.92;
+        transform: rotate(-6deg);
+      }
+
+      .hero-visual::after {
+        content: "";
+        position: absolute;
+        width: min(420px, 65%);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 50% 52%, rgba(115, 160, 126, 0.76), transparent 18%),
+          radial-gradient(circle at 40% 44%, rgba(149, 217, 224, 0.9), transparent 29%),
+          radial-gradient(circle at 58% 60%, rgba(84, 130, 97, 0.9), transparent 14%),
+          radial-gradient(circle at 46% 46%, rgba(250, 252, 251, 0.92), transparent 7%);
+        box-shadow:
+          0 0 0 16px rgba(212, 184, 127, 0.48),
+          0 0 0 32px rgba(212, 184, 127, 0.24),
+          0 18px 40px rgba(120, 98, 76, 0.14);
+        transform: translateY(-18%);
+      }
+
+      .visual-card {
+        position: relative;
+        width: min(520px, 92%);
+        margin-top: auto;
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow);
+      }
+
+      .visual-card p {
+        margin: 0;
+        max-width: 31ch;
+        font-size: 0.82rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
         color: var(--ink-soft);
       }
 
-      .links {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 24px;
+      .quote-band {
+        padding: 56px 0 30px;
       }
 
-      .btn-link {
-        display: inline-block;
-        text-decoration: none;
-        border: 1px solid var(--gold);
-        color: var(--ink);
-        background: #ffffffcc;
-        padding: 10px 16px;
-        border-radius: 999px;
-        font-size: 1rem;
-        transition: all 0.2s ease;
+      .quote-card {
+        width: min(520px, 100%);
+        margin: 0 auto;
+        padding: 28px 34px;
+        text-align: center;
+        background: var(--taupe);
+        color: #fffaf6;
       }
 
-      .btn-link:hover {
-        background: var(--gold);
-        color: white;
+      .quote-card p {
+        margin: 0;
+        font-size: 0.86rem;
+        line-height: 1.9;
+        letter-spacing: 0.11em;
+      }
+
+      .content-section {
+        padding: 40px 0 32px;
+      }
+
+      .section-intro {
+        width: min(740px, 100%);
+        margin: 0 auto 24px;
+        text-align: center;
+      }
+
+      .section-intro p {
+        margin: 14px 0 0;
+        color: var(--ink-soft);
+        font-size: 0.98rem;
+        letter-spacing: 0.05em;
+      }
+
+      .catalog-block {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        padding: 30px 24px 24px;
+      }
+
+      .catalog-block.alt {
+        background: linear-gradient(180deg, #fffdfb 0%, #fffaf8 100%);
+      }
+
+      .catalog-head {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .catalog-head h2 {
+        font-size: clamp(1.75rem, 3vw, 2.35rem);
+      }
+
+      .catalog-head p {
+        margin: 0;
+        max-width: 62ch;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+        letter-spacing: 0.05em;
       }
 
       .status {
-        margin: 10px auto 26px;
-        max-width: 900px;
-        padding: 11px 14px;
+        margin: 0 auto 26px;
+        max-width: 1240px;
+        padding: 14px 16px;
         border: 1px solid var(--line);
-        border-radius: 12px;
-        background: var(--bg-card);
+        background: #ffffff;
         color: var(--ink-soft);
+        font-size: 0.88rem;
+        letter-spacing: 0.05em;
       }
 
       .status.error {
-        border-color: #e8b9b9;
-        color: #7d2222;
+        border-color: #dfb7b7;
         background: #fff4f4;
+        color: #8a3d3d;
       }
 
       .hidden {
         display: none;
       }
 
-      .catalog {
-        display: grid;
-        gap: 24px;
-        padding-bottom: 48px;
-      }
-
-      .section {
-        background: var(--bg-card);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 18px;
-      }
-
-      .section h2 {
-        margin: 0 0 6px;
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
-        font-weight: 500;
-      }
-
-      .section p {
-        margin: 0 0 14px;
-        color: var(--ink-soft);
-        font-size: 1.05rem;
-      }
-
       .collection-slot {
-        min-height: 120px;
+        min-height: 160px;
       }
 
-      footer {
-        border-top: 1px solid var(--line);
-        padding: 20px 0 28px;
-        text-align: center;
+      .story-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        background: #ffffff;
+      }
+
+      .story-copy {
+        padding: clamp(32px, 4vw, 56px);
+        background: #f9f1ef;
+      }
+
+      .story-copy p {
+        margin: 14px 0 0;
+        max-width: 56ch;
         color: var(--ink-soft);
         font-size: 0.95rem;
+        letter-spacing: 0.05em;
+      }
+
+      .story-visual {
+        position: relative;
+        min-height: 420px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(248, 244, 239, 0.65), rgba(250, 248, 246, 0.9)),
+          radial-gradient(circle at 50% 48%, rgba(188, 205, 220, 0.62), transparent 18%),
+          radial-gradient(circle at 40% 44%, rgba(216, 188, 143, 0.8), transparent 26%),
+          #f2ece6;
+      }
+
+      .story-visual::before {
+        content: "";
+        position: absolute;
+        inset: auto 18% 16% auto;
+        width: min(280px, 46%);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 14px rgba(214, 186, 132, 0.48),
+          0 0 0 32px rgba(214, 186, 132, 0.16);
+      }
+
+      .story-visual::after {
+        content: "";
+        position: absolute;
+        inset: 18% auto auto 14%;
+        width: min(160px, 22%);
+        aspect-ratio: 1 / 1.2;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.58)),
+          repeating-linear-gradient(
+            90deg,
+            rgba(200, 179, 163, 0.28) 0,
+            rgba(200, 179, 163, 0.28) 1px,
+            transparent 1px,
+            transparent 24px
+          ),
+          repeating-linear-gradient(
+            0deg,
+            rgba(200, 179, 163, 0.22) 0,
+            rgba(200, 179, 163, 0.22) 1px,
+            transparent 1px,
+            transparent 24px
+          );
+        border: 1px solid rgba(200, 179, 163, 0.35);
+        box-shadow: 0 16px 40px rgba(120, 98, 76, 0.12);
+        transform: rotate(-6deg);
+      }
+
+      .feature-band {
+        margin-top: 30px;
+        padding: 56px 0;
+        background: var(--taupe);
+        color: #fffaf6;
+        text-align: center;
+      }
+
+      .feature-band h2 {
+        font-size: clamp(1.7rem, 3vw, 2.3rem);
+      }
+
+      .feature-band p {
+        width: min(760px, 100%);
+        margin: 14px auto 0;
+        font-size: 0.94rem;
+        letter-spacing: 0.07em;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: 32px;
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      .detail-card {
+        padding: 24px 22px;
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .detail-card h3 {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .detail-card p {
+        margin: 10px 0 0;
+        font-size: 0.92rem;
+        letter-spacing: 0.05em;
+      }
+
+      .footer-main {
+        background: var(--taupe);
+        color: #fffaf6;
+        padding: 28px 0;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .footer-group h4 {
+        margin: 0 0 10px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .footer-group a,
+      .footer-group p {
+        display: block;
+        margin: 0 0 6px;
+        text-decoration: none;
+        color: inherit;
+        font-size: 0.9rem;
+      }
+
+      .footer-note {
+        background: var(--blush);
+        text-align: center;
+        padding: 24px 16px 28px;
+      }
+
+      .footer-note .eyebrow {
+        color: var(--ink);
+      }
+
+      .footer-note p {
+        width: min(700px, 100%);
+        margin: 10px auto 0;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+      }
+
+      .shopify-buy__layout-vertical,
+      .shopify-buy__product {
+        width: 100% !important;
+        max-width: none !important;
+      }
+
+      .shopify-buy__collection {
+        margin: 0 !important;
+      }
+
+      .shopify-buy__collection-products,
+      .shopify-buy__product-set {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 1px !important;
+        background: var(--line) !important;
+      }
+
+      .shopify-buy__product {
+        margin: 0 !important;
+        padding: 20px !important;
+        background: #ffffff !important;
+        border: 0 !important;
+      }
+
+      .shopify-buy__product__title,
+      .shopify-buy__product-title {
+        margin: 0 0 10px !important;
+        font-family: "Inter", Arial, sans-serif !important;
+        font-size: 1rem !important;
+        font-weight: 400 !important;
+        line-height: 1.45 !important;
+        color: var(--ink) !important;
+      }
+
+      .shopify-buy__product__price,
+      .shopify-buy__product-price,
+      .shopify-buy__product__actual-price,
+      .shopify-buy__price {
+        margin-bottom: 12px !important;
+        font-family: "Inter", Arial, sans-serif !important;
+        font-size: 0.92rem !important;
+        letter-spacing: 0.06em !important;
+        color: var(--ink-soft) !important;
+      }
+
+      .shopify-buy__btn,
+      .shopify-buy__btn--cart-checkout,
+      .shopify-buy__btn--close {
+        min-height: 44px !important;
+        border-radius: 0 !important;
+        font-family: "Inter", Arial, sans-serif !important;
+        font-size: 0.78rem !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.16em !important;
+        text-transform: uppercase !important;
+        background: var(--ink) !important;
+        color: var(--accent) !important;
+      }
+
+      .shopify-buy__btn:hover,
+      .shopify-buy__btn--cart-checkout:hover {
+        background: #171717 !important;
+      }
+
+      .shopify-buy__cart-toggle {
+        border-radius: 0 !important;
+        background: var(--ink) !important;
+        color: var(--accent) !important;
+      }
+
+      .shopify-buy-frame--toggle {
+        right: 20px !important;
+        bottom: 20px !important;
+      }
+
+      @media (max-width: 1040px) {
+        .hero-grid,
+        .story-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .shopify-buy__collection-products,
+        .shopify-buy__product-set {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .topbar-inner,
+        .site-header-inner {
+          flex-direction: column;
+          justify-content: center;
+          padding: 14px 0;
+        }
+
+        .nav {
+          justify-content: center;
+          gap: 14px;
+        }
+
+        h1 {
+          max-width: none;
+          font-size: clamp(2.35rem, 12vw, 3.4rem);
+        }
+
+        .detail-grid,
+        .footer-grid,
+        .shopify-buy__collection-products,
+        .shopify-buy__product-set {
+          grid-template-columns: 1fr !important;
+        }
+
+        .quote-card,
+        .catalog-block,
+        .hero-copy,
+        .hero-visual,
+        .story-copy {
+          padding-inline: 22px;
+        }
       }
     </style>
   </head>
   <body>
-    <header class="hero container">
-      <p class="eyebrow">Precious Mahj</p>
-      <h1>Lace-Inspired Mahjong Luxury</h1>
-      <p class="subtitle">
-        A curated extension of Precious Lace Jewelry, focused exclusively on elevated Mahjong
-        tiles and Mahjong mats.
-      </p>
-      <div class="links">
-        <a class="btn-link" href="https://www.preciouslacejewelry.com/" target="_blank" rel="noopener noreferrer"
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span>Luxury Mahjong for the modern collector</span>
+        <a href="https://www.preciouslacejewelry.com/" target="_blank" rel="noopener noreferrer"
           >Visit Precious Lace Jewelry</a
         >
-        <a
-          class="btn-link"
-          href="https://www.preciouslacejewelry.com/collections/precious-mahj"
-          target="_blank"
-          rel="noopener noreferrer"
-          >View full Precious Mahj collection</a
-        >
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand" href="#top">
+          <p class="brand-mark">Precious Lace Collection</p>
+          <p class="brand-name">Precious Mahj</p>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#tiles">Tiles</a>
+          <a href="#mats">Mats</a>
+          <a href="#story">The Feel</a>
+          <a
+            href="https://www.preciouslacejewelry.com/collections/precious-mahj"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Full Collection</a
+          >
+        </nav>
       </div>
     </header>
 
-    <main class="container">
-      <p id="status" class="status">Loading Mahjong collection embeds...</p>
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Inspired by lace, crafted for the table</p>
+            <h1>Mahjong pieces with a softer, more elevated point of view.</h1>
+            <p class="hero-text">
+              Precious Mahj brings the refined, feminine mood of Precious Lace Jewelry into game
+              night through curated tiles and mats designed to feel polished, giftable, and quietly
+              luxurious.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#tiles">Shop Tiles</a>
+              <a class="button button-secondary" href="#mats">Shop Mats</a>
+            </div>
+          </div>
 
-      <div class="catalog" aria-live="polite">
-        <section class="section">
-          <h2>Mahjong Tiles</h2>
-          <p>Elegant tile sets designed to feel distinctive, heirloom-worthy, and gift-ready.</p>
-          <div id="tiles-collection" class="collection-slot"></div>
-        </section>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-card">
+              <p>Warm neutrals, graceful detailing, and heirloom-worthy Mahjong essentials.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section class="section">
-          <h2>Mahjong Mats</h2>
-          <p>Coordinated mats that complement your table and complete your Mahjong experience.</p>
-          <div id="mats-collection" class="collection-slot"></div>
-        </section>
-      </div>
+      <section class="quote-band">
+        <div class="container">
+          <div class="quote-card">
+            <p>
+              Precious Mahj is where the romance of Precious Lace Jewelry meets the ritual of the
+              table. Every set is chosen to feel refined, distinctive, and beautifully at home in a
+              luxury interior.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <p id="status" class="status">Loading curated Mahjong collections...</p>
+
+      <section id="tiles" class="content-section">
+        <div class="container">
+          <div class="section-intro">
+            <p class="eyebrow">Explore our collected essentials</p>
+            <h2>Mahjong tile sets styled with the same elegance as fine jewelry.</h2>
+            <p>
+              Thoughtfully selected tile sets with a collectible feel, soft palettes, and a sense
+              of occasion that goes beyond game night.
+            </p>
+          </div>
+
+          <div class="catalog-block">
+            <div class="catalog-head">
+              <h2>Mahjong Tiles</h2>
+              <p>
+                Statement-making sets with polished finishes and elevated color stories designed to
+                feel special from the first unboxing.
+              </p>
+            </div>
+            <div id="tiles-collection" class="collection-slot"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="mats" class="content-section">
+        <div class="container">
+          <div class="catalog-block alt">
+            <div class="catalog-head">
+              <p class="eyebrow">Soft structure for the table</p>
+              <h2>Mahjong mats that complete the look with warmth and sophistication.</h2>
+              <p>
+                Coordinated mats that anchor the table with texture, comfort, and a polished finish
+                worthy of the Precious Mahj name.
+              </p>
+            </div>
+            <div id="mats-collection" class="collection-slot"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" class="content-section">
+        <div class="container story-grid">
+          <div class="story-copy">
+            <p class="eyebrow">Where feminine grace meets modern play</p>
+            <h2>A Mahjong collection designed to feel bespoke, polished, and gift-ready.</h2>
+            <p>
+              The reference brand works because it feels editorial rather than promotional. This
+              page now follows that same rhythm: refined typography, softened color, airy spacing,
+              and a more considered product presentation.
+            </p>
+            <p>
+              Instead of heavy cards and rounded buttons, the experience now leans on flat
+              silhouettes, blush and taupe color blocking, and a quiet luxury palette that keeps
+              the focus on the products.
+            </p>
+            <div class="button-row">
+              <a
+                class="button button-primary"
+                href="https://www.preciouslacejewelry.com/collections/precious-mahj"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Full Collection</a
+              >
+            </div>
+          </div>
+
+          <div class="story-visual" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="feature-band">
+        <div class="container">
+          <p class="eyebrow">Good things take time</p>
+          <h2>Curated pieces, elevated presentation, and a slower luxury tempo.</h2>
+          <p>
+            From collectible tile sets to coordinating mats, Precious Mahj is presented with the
+            same sense of calm refinement, tactile beauty, and giftable intention seen across the
+            Precious Lace world.
+          </p>
+
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Luxury Palette</h3>
+              <p>Soft ivory, blush, taupe, and charcoal tones borrowed from the reference site.</p>
+            </article>
+            <article class="detail-card">
+              <h3>Editorial Rhythm</h3>
+              <p>More breathing room, cleaner lines, and content blocks that feel curated.</p>
+            </article>
+            <article class="detail-card">
+              <h3>Refined Product View</h3>
+              <p>Shopify embeds are restyled to feel flatter, quieter, and more premium.</p>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="container">Designed to complement the Precious Lace Jewelry brand.</footer>
+    <footer>
+      <div class="footer-main">
+        <div class="container footer-grid">
+          <div class="footer-group">
+            <h4>Shop</h4>
+            <a href="#tiles">Mahjong Tiles</a>
+            <a href="#mats">Mahjong Mats</a>
+            <a
+              href="https://www.preciouslacejewelry.com/collections/precious-mahj"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Full Precious Mahj Collection</a
+            >
+          </div>
+
+          <div class="footer-group">
+            <h4>Brand</h4>
+            <a href="https://www.preciouslacejewelry.com/" target="_blank" rel="noopener noreferrer"
+              >Precious Lace Jewelry</a
+            >
+            <p>Lace-inspired luxury, adapted for Mahjong.</p>
+          </div>
+
+          <div class="footer-group">
+            <h4>Feel</h4>
+            <p>Soft neutrals</p>
+            <p>Editorial spacing</p>
+            <p>Quiet luxury presentation</p>
+          </div>
+
+          <div class="footer-group">
+            <h4>Designed For</h4>
+            <p>Collectors</p>
+            <p>Gift-giving</p>
+            <p>Elevated game nights</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        <p class="eyebrow">Precious Mahj</p>
+        <p>
+          A softer, more luxurious static storefront that closely follows the Precious Lace visual
+          language in typography, color, spacing, and tone.
+        </p>
+      </div>
+    </footer>
 
     <script>
       /*
@@ -194,7 +886,7 @@
         domain: "precious-lace-jewelry.myshopify.com",
         storefrontAccessToken: "eb588ee8c43b0caa0650bfcc0e019aae",
         apiKey: "",
-        tilesCollectionId: "REPLACE_WITH_TILES_COLLECTION_ID",
+        tilesCollectionId: "331612029091",
         matsCollectionId: "331612782755",
       };
 
@@ -249,16 +941,33 @@
                 button: "View product",
               },
               styles: {
+                product: {
+                  "background-color": "#ffffff",
+                  padding: "0px",
+                  margin: "0px",
+                },
                 button: {
-                  "background-color": "#b8955f",
-                  "font-family": "Georgia, serif",
-                  "border-radius": "999px",
+                  "background-color": "#2e2e2e",
+                  color: "#efd6d2",
+                  "font-family": "Inter, Arial, sans-serif",
+                  "font-size": "12px",
+                  "font-weight": "500",
+                  "letter-spacing": "0.18em",
+                  "text-transform": "uppercase",
+                  "border-radius": "0px",
+                  padding: "13px 18px",
                 },
                 title: {
-                  "font-family": "Georgia, serif",
+                  color: "#2e2e2e",
+                  "font-family": "Inter, Arial, sans-serif",
+                  "font-size": "16px",
+                  "font-weight": "400",
                 },
                 price: {
-                  "font-family": "Georgia, serif",
+                  color: "#71655d",
+                  "font-family": "Inter, Arial, sans-serif",
+                  "font-size": "14px",
+                  "letter-spacing": "0.04em",
                 },
               },
             },
@@ -268,7 +977,9 @@
             toggle: {
               styles: {
                 toggle: {
-                  "background-color": "#b8955f",
+                  "background-color": "#2e2e2e",
+                  color: "#efd6d2",
+                  "border-radius": "0px",
                 },
               },
             },
