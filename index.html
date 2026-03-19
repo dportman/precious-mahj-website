@@ -3,265 +3,323 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Precious Mahj</title>
+    <title>Precious Mahj | Mahjong Tiles & Mats</title>
     <style>
       :root {
         color-scheme: light;
+        --bg: #f8f5f1;
+        --bg-card: #fffdfa;
+        --ink: #2c2622;
+        --ink-soft: #5b534d;
+        --gold: #b8955f;
+        --gold-dark: #8f6f3d;
+        --line: #e8dfd3;
       }
+
       * {
         box-sizing: border-box;
       }
+
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #f8fafc;
-        color: #0f172a;
+        color: var(--ink);
+        background: radial-gradient(circle at top, #fefcf9 0%, var(--bg) 56%);
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
       }
+
       .container {
-        max-width: 1100px;
+        width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 24px 16px 40px;
       }
-      .topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-      h1 {
-        margin: 0;
-        font-size: 1.4rem;
-      }
-      .link {
-        color: #0a58ca;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .link:hover {
-        text-decoration: underline;
-      }
-      .status {
-        margin: 0 0 16px;
-        padding: 12px 14px;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        background: #ffffff;
-      }
-      .status.error {
-        border-color: #fecaca;
-        background: #fff1f2;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-        gap: 14px;
-      }
-      .card {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-      }
-      .card img {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        background: #e2e8f0;
-      }
-      .card-body {
-        padding: 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        min-height: 132px;
-      }
-      .product-title {
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.35;
-      }
-      .price {
-        margin: 0;
-        font-weight: 700;
-      }
-      .pill {
-        width: fit-content;
-        margin: 0;
-        padding: 4px 8px;
-        border-radius: 999px;
-        font-size: 0.78rem;
-        background: #dcfce7;
-        color: #166534;
-      }
-      .pill.sold-out {
-        background: #fee2e2;
-        color: #991b1b;
-      }
-      .btn {
-        display: inline-block;
-        margin-top: auto;
-        text-decoration: none;
+
+      .hero {
+        padding: 56px 0 30px;
         text-align: center;
-        background: #0a58ca;
-        color: #ffffff;
-        border-radius: 8px;
-        padding: 8px 10px;
-        font-weight: 600;
       }
-      .btn:hover {
-        background: #0849a8;
+
+      .eyebrow {
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.8rem;
+        color: var(--gold-dark);
       }
+
+      h1 {
+        margin: 14px 0 0;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 500;
+        line-height: 1.1;
+      }
+
+      .subtitle {
+        width: min(700px, 100%);
+        margin: 16px auto 0;
+        font-size: 1.2rem;
+        line-height: 1.45;
+        color: var(--ink-soft);
+      }
+
+      .links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+
+      .btn-link {
+        display: inline-block;
+        text-decoration: none;
+        border: 1px solid var(--gold);
+        color: var(--ink);
+        background: #ffffffcc;
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+      }
+
+      .btn-link:hover {
+        background: var(--gold);
+        color: white;
+      }
+
+      .status {
+        margin: 10px auto 26px;
+        max-width: 900px;
+        padding: 11px 14px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--bg-card);
+        color: var(--ink-soft);
+      }
+
+      .status.error {
+        border-color: #e8b9b9;
+        color: #7d2222;
+        background: #fff4f4;
+      }
+
       .hidden {
         display: none;
+      }
+
+      .catalog {
+        display: grid;
+        gap: 24px;
+        padding-bottom: 48px;
+      }
+
+      .section {
+        background: var(--bg-card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .section h2 {
+        margin: 0 0 6px;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 500;
+      }
+
+      .section p {
+        margin: 0 0 14px;
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+      }
+
+      .collection-slot {
+        min-height: 120px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 20px 0 28px;
+        text-align: center;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
       }
     </style>
   </head>
   <body>
-    <main class="container">
-      <div class="topbar">
-        <h1>Precious Mahj</h1>
+    <header class="hero container">
+      <p class="eyebrow">Precious Mahj</p>
+      <h1>Lace-Inspired Mahjong Luxury</h1>
+      <p class="subtitle">
+        A curated extension of Precious Lace Jewelry, focused exclusively on elevated Mahjong
+        tiles and Mahjong mats.
+      </p>
+      <div class="links">
+        <a class="btn-link" href="https://www.preciouslacejewelry.com/" target="_blank" rel="noopener noreferrer"
+          >Visit Precious Lace Jewelry</a
+        >
         <a
-          class="link"
+          class="btn-link"
           href="https://www.preciouslacejewelry.com/collections/precious-mahj"
           target="_blank"
           rel="noopener noreferrer"
-          >View collection on Shopify</a
+          >View full Precious Mahj collection</a
         >
       </div>
+    </header>
 
-      <p id="status" class="status">Loading products...</p>
-      <section id="product-grid" class="grid hidden" aria-live="polite"></section>
+    <main class="container">
+      <p id="status" class="status">Loading Mahjong collection embeds...</p>
+
+      <div class="catalog" aria-live="polite">
+        <section class="section">
+          <h2>Mahjong Tiles</h2>
+          <p>Elegant tile sets designed to feel distinctive, heirloom-worthy, and gift-ready.</p>
+          <div id="tiles-collection" class="collection-slot"></div>
+        </section>
+
+        <section class="section">
+          <h2>Mahjong Mats</h2>
+          <p>Coordinated mats that complement your table and complete your Mahjong experience.</p>
+          <div id="mats-collection" class="collection-slot"></div>
+        </section>
+      </div>
     </main>
 
+    <footer class="container">Designed to complement the Precious Lace Jewelry brand.</footer>
+
     <script>
+      /*
+       * Pull values from Buy Button -> Collection Buy Button -> Copy code in Shopify admin.
+       * Add one collection ID for Mahjong Tiles and one for Mahjong Mats.
+       */
       const config = {
-        shopDomain: "www.preciouslacejewelry.com",
-        apiVersion: "2025-01",
-        collectionHandle: "precious-mahj",
+        domain: "www.preciouslacejewelry.com",
         storefrontAccessToken: "REPLACE_WITH_STOREFRONT_ACCESS_TOKEN",
+        apiKey: "",
+        tilesCollectionId: "REPLACE_WITH_TILES_COLLECTION_ID",
+        matsCollectionId: "REPLACE_WITH_MATS_COLLECTION_ID",
       };
 
       const statusEl = document.getElementById("status");
-      const gridEl = document.getElementById("product-grid");
-      const endpoint = `https://${config.shopDomain}/api/${config.apiVersion}/graphql.json`;
-
-      const query = `
-        query GetCollectionProducts($handle: String!) {
-          collection(handle: $handle) {
-            title
-            products(first: 24) {
-              nodes {
-                title
-                availableForSale
-                onlineStoreUrl
-                featuredImage {
-                  url
-                  altText
-                }
-                priceRange {
-                  minVariantPrice {
-                    amount
-                    currencyCode
-                  }
-                }
-              }
-            }
-          }
-        }
-      `;
+      const tilesNode = document.getElementById("tiles-collection");
+      const matsNode = document.getElementById("mats-collection");
 
       function setStatus(message, isError = false) {
         statusEl.textContent = message;
         statusEl.classList.toggle("error", isError);
+        statusEl.classList.remove("hidden");
       }
 
-      function formatPrice(price) {
-        const amount = Number(price.amount);
-        return new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: price.currencyCode,
-        }).format(amount);
-      }
-
-      function renderProducts(products) {
-        if (!products.length) {
-          setStatus("No products found in this collection.");
-          return;
-        }
-
-        gridEl.innerHTML = products
-          .map((product) => {
-            const imageUrl = product.featuredImage?.url || "";
-            const imageAlt = product.featuredImage?.altText || product.title;
-            const statusClass = product.availableForSale ? "pill" : "pill sold-out";
-            const statusText = product.availableForSale ? "In stock" : "Sold out";
-
-            return `
-              <article class="card">
-                ${imageUrl ? `<img src="${imageUrl}" alt="${imageAlt}" loading="lazy" />` : ""}
-                <div class="card-body">
-                  <h2 class="product-title">${product.title}</h2>
-                  <p class="price">${formatPrice(product.priceRange.minVariantPrice)}</p>
-                  <p class="${statusClass}">${statusText}</p>
-                  <a class="btn" href="${product.onlineStoreUrl}" target="_blank" rel="noopener noreferrer">
-                    View Product
-                  </a>
-                </div>
-              </article>
-            `;
-          })
-          .join("");
-
-        gridEl.classList.remove("hidden");
+      function hideStatus() {
         statusEl.classList.add("hidden");
       }
 
-      async function loadProducts() {
-        if (config.storefrontAccessToken.includes("REPLACE_WITH_")) {
+      function loadShopifyBuyButtonSdk() {
+        return new Promise((resolve, reject) => {
+          if (window.ShopifyBuy && window.ShopifyBuy.UI) {
+            resolve();
+            return;
+          }
+
+          const script = document.createElement("script");
+          script.async = true;
+          script.src =
+            "https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js";
+          script.onload = () => resolve();
+          script.onerror = () => reject(new Error("Could not load Shopify Buy Button SDK."));
+          document.head.appendChild(script);
+        });
+      }
+
+      function hasPlaceholder(value) {
+        return !value || value.includes("REPLACE_WITH_");
+      }
+
+      async function createCollectionEmbed(ui, collectionId, node) {
+        await ui.createComponent("collection", {
+          id: collectionId,
+          node,
+          moneyFormat: "%24%7B%7Bamount%7D%7D",
+          options: {
+            product: {
+              iframe: false,
+              contents: {
+                options: false,
+              },
+              text: {
+                button: "View product",
+              },
+              styles: {
+                button: {
+                  "background-color": "#b8955f",
+                  "font-family": "Georgia, serif",
+                  "border-radius": "999px",
+                },
+                title: {
+                  "font-family": "Georgia, serif",
+                },
+                price: {
+                  "font-family": "Georgia, serif",
+                },
+              },
+            },
+            cart: {
+              startOpen: false,
+            },
+            toggle: {
+              styles: {
+                toggle: {
+                  "background-color": "#b8955f",
+                },
+              },
+            },
+          },
+        });
+      }
+
+      async function renderCollections() {
+        const token = config.storefrontAccessToken || config.apiKey;
+        const missingToken = hasPlaceholder(token);
+        const missingTiles = hasPlaceholder(config.tilesCollectionId);
+        const missingMats = hasPlaceholder(config.matsCollectionId);
+
+        if (missingToken || (missingTiles && missingMats)) {
           setStatus(
-            "Add your Storefront API token in index.html (config.storefrontAccessToken) to load products.",
+            "Set config token plus at least one collection ID (tilesCollectionId / matsCollectionId) in index.html from your Shopify Buy Button code.",
             true
           );
           return;
         }
 
         try {
-          const response = await fetch(endpoint, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "X-Shopify-Storefront-Access-Token": config.storefrontAccessToken,
-            },
-            body: JSON.stringify({
-              query,
-              variables: { handle: config.collectionHandle },
-            }),
+          await loadShopifyBuyButtonSdk();
+          const client = window.ShopifyBuy.buildClient({
+            domain: config.domain,
+            storefrontAccessToken: token,
           });
+          const ui = await window.ShopifyBuy.UI.onReady(client);
 
-          if (!response.ok) {
-            throw new Error(`Shopify API request failed (${response.status})`);
+          const jobs = [];
+          if (!missingTiles) {
+            jobs.push(createCollectionEmbed(ui, config.tilesCollectionId, tilesNode));
+          } else {
+            tilesNode.innerHTML =
+              "<p class='status'>Add tilesCollectionId in config to display Mahjong Tiles.</p>";
           }
 
-          const payload = await response.json();
-          if (payload.errors?.length) {
-            throw new Error(payload.errors[0].message);
+          if (!missingMats) {
+            jobs.push(createCollectionEmbed(ui, config.matsCollectionId, matsNode));
+          } else {
+            matsNode.innerHTML =
+              "<p class='status'>Add matsCollectionId in config to display Mahjong Mats.</p>";
           }
 
-          const collection = payload.data?.collection;
-          if (!collection) {
-            throw new Error("Collection not found. Check the handle in config.collectionHandle.");
-          }
-
-          renderProducts(collection.products.nodes);
+          await Promise.all(jobs);
+          hideStatus();
         } catch (error) {
-          setStatus(`Could not load products: ${error.message}`, true);
+          setStatus(`Could not load Shopify collection embeds: ${error.message}`, true);
         }
       }
 
-      loadProducts();
+      renderCollections();
     </script>
   </body>
 </html>
